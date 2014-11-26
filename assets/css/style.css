@@ -1,0 +1,23 @@
+.splay-container{
+	width:98%;
+	margin: 0 auto;
+	display:table;
+    table-layout: fixed;
+}
+.splay-popular-article{
+	border:1px solid #dedede;
+	height:30px;
+	text-align:center;
+	display:table-cell;
+    padding-top:10px;
+	}
+.splay-popular-article a{
+	text-decoration:none;
+	font-weight:bold;
+}
+.splay-popular-article.vert{
+    display:block;
+}
+.splay-popular-article.horiz{
+    display:table-cell;
+}

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="module" method="upgrade">
+
+
+    <name>mod_splay</name>
+    <author>Giannis Smirnios</author>
+    <creationDate>Nov 2014</creationDate>
+    <copyright></copyright>
+    <license></license>
+    <authorEmail>smyrnios@ceid.upatras.gr</authorEmail>
+    <authorUrl></authorUrl>
+    <description>Detects trending articles using a splay tree and a burst (hits in time) algorithm. Also, showcases them in a menu module.</description>
+
+    <scriptfile>script.php</scriptfile>
+
+    <files>
+        <filename>script.php</filename>
+        <folder>assets/</folder>
+        <filename module="mod_splay">mod_splay.xml</filename>
+        <filename module="mod_splay">mod_splay.php</filename>
+        <filename module="mod_splay">helper.php</filename>
+        <filename module="mod_articlemod">tmpl/default.php</filename>
+        <folder>admin/sql</folder>
+    </files>
+
+    <administration>
+        <files folder="admin">
+            <folder>sql</folder>
+        </files>
+    </administration>
+
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">admin/sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">admin/sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <params>
+                    <field type="spacer" name="burst_hits_display" label="&lt;b&gt;Trending articles display details&lt;/b&gt;" />
+                    <field name="articles_number"
+                           type="radio"
+                           default="3"
+                           label="Number of trending articles you want to display:"
+                           description="splay">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                    </field>
+                    <field name="articles_orientation"
+                           type="radio"
+                           default="horiz"
+                           label="Choose between horizontal and verical layout."
+                           description="splay">
+                        <option value="horiz">Horizontal</option>
+                        <option value="vert">Vertical</option>
+                    </field>
+                    <field type="spacer" name="burst_hits_time" label="&lt;b&gt;Time period for an article to become trending&lt;/b&gt;" />
+                    <field name="burst_minutes"
+                           type="integer"
+                           default="5"
+                           label="Minutes:"
+                           description="splay"
+                           first="0"
+                           last="59"
+                           step="5" />
+                    <field name="burst_hours"
+                           type="integer"
+                           default="0"
+                           label="Hours:"
+                           description="splay"
+                           first="0"
+                           last="23"
+                           step="1" />
+                    <field name="burst_days"
+                           type="integer"
+                           default="0"
+                           label="Days:"
+                           description="splay"
+                           first="0"
+                           last="30"
+                           step="1" />
+                    <field type="spacer" name="burst_hits_spacer" label="&lt;b&gt;Hits required to become trending&lt;/b&gt;" />
+                    <field name="burst_hits"
+                           type="integer"
+                           default="10"
+                           label="Hits required, in interval set, for an article to reach trending status:"
+                           description="splay"
+                           first="10"
+                           last="2110"
+                           step="100" />
+                </params>
+            </fieldset>
+        </fields>
+    </config>
+
+
+</extension>
