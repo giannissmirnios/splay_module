@@ -10,6 +10,8 @@ This module was created by I.Smirnios for his diploma in Computers Engineering &
 
 Video demonstration: http://vimeo.com/112852823
 
+This module has been tested for Joomla! version 2.5 and Joomla! version 3.3 .
+
 In order for this joomla module to work correctly the following admin rights should be enabled for the sql user of the joomla implementation:
 EVENT
 SUPER
