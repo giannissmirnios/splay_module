@@ -3,12 +3,13 @@
 
 
     <name>mod_splay</name>
-    <author>Giannis Smirnios</author>
+    <author>Ioannis Smirnios</author>
     <creationDate>Nov 2014</creationDate>
-    <copyright></copyright>
-    <license></license>
+    <copyright>University of Patras</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>smyrnios@ceid.upatras.gr</authorEmail>
     <authorUrl></authorUrl>
+    <version>1.0</version>
     <description>Detects trending articles using a splay tree and a burst (hits in time) algorithm. Also, showcases them in a menu module.</description>
 
     <scriptfile>script.php</scriptfile>

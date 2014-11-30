@@ -17,7 +17,7 @@ CREATE TABLE #__burstinfo (
 `id` int(1) NOT NULL AUTO_INCREMENT,
 `visits` int(20) NOT NULL,
 `timeframe` DATETIME NOT NULL,
-`last_check` DATETIME DEFAULT CURRENT_TIMESTAMP,
+`last_check` DATETIME DEFAULT '2000-00-00 00:00:00',
 PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1;
 
@@ -42,10 +42,9 @@ PRIMARY KEY (`id`)
 INSERT INTO #__burstinfo (`visits`,`timeframe`) VALUES
 (10,'0000-00-00 00:05:00') ;
 
-SET @timeframetemp := (SELECT timeframe FROM #__burstinfo );
 
 CREATE EVENT #__burstcheck
 ON SCHEDULE
-EVERY MINUTE(CONVERT(@timeframetemp , DATETIME)) MINUTE
+EVERY MINUTE(CONVERT('0000-00-00 00:05:00' , DATETIME)) MINUTE
 DO
 CALL #__check();
