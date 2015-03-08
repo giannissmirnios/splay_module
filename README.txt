@@ -16,6 +16,8 @@ In order for this joomla module to work correctly the following admin rights sho
 EVENT
 SUPER
 
+The system variable thread_stack should also be set to at least 2mb.
+
 Feel free to fork this module's source code and develop it's functionalities further.
 Also, feel free to contact me for anything related to this module at smyrnios [at] ceid.upatras.gr
 
